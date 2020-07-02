@@ -1,7 +1,7 @@
 import React, { StrictMode } from "react";
 import { render } from "react-dom";
 
-import App from "./client-app";
+import App from "./app";
 import "./index.css";
 
 render(
