@@ -50,7 +50,11 @@ const Search = ({ initialSearchTerm = "" }) => {
       </div>
       <div className="ui celled list">
         {searchResults.map(({ title, snippet, pageid }) => (
-          <div className="item" key={pageid}>
+          <div
+            className="item"
+            key={pageid}
+            style={{ padding: "1rem 0.0625rem" }}
+          >
             <div className="right floated content">
               <a
                 href={`https://en.wikipedia.org?curid=${pageid}`}
@@ -62,7 +66,9 @@ const Search = ({ initialSearchTerm = "" }) => {
               </a>
             </div>
             <div className="content">
-              <div className="header">{title}</div>
+              <div className="header" style={{ marginBottom: "0.5rem" }}>
+                {title}
+              </div>
               <span dangerouslySetInnerHTML={{ __html: snippet }} />
             </div>
           </div>
