@@ -36,15 +36,15 @@ const Dropdown = ({
             {isEmptyObject(selected) ? placeholder : selected.label}
           </div>
           <div className={`menu${openDropdown ? " visible transition" : ""}`}>
-            {options.map(({ id, label, value }) => (
+            {options.map((option) => (
               <div
-                key={id}
+                key={option.id}
                 className={`item${
-                  value === selected.value ? " active selected" : ""
+                  option.value === selected.value ? " active selected" : ""
                 }`}
-                onClick={() => onSelectedChange({ id, label, value })}
+                onClick={() => onSelectedChange(option)}
               >
-                {label}
+                {option.label}
               </div>
             ))}
           </div>

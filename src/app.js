@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import isEmptyObject from "./utils/is-empty-object";
 
 import Accordion from "./components/accordion";
 import Search from "./components/search";
@@ -26,6 +27,11 @@ const App = () => {
         selected={selectedOption}
         onSelectedChange={handleSelectedChange}
       />
+      {!isEmptyObject(selectedOption) && (
+        <div className="ui segment" style={{ width: "600px" }}>
+          <p>{selectedOption.content}</p>
+        </div>
+      )}
     </Fragment>
   );
 };
