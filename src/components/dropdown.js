@@ -7,6 +7,7 @@ const Dropdown = ({
   options = [],
   selected = {},
   onSelectedChange = () => {},
+  disabled = false,
 }) => {
   const [openDropdown, setOpenDropdown] = useState(false);
   const ref = useRef();
@@ -28,7 +29,7 @@ const Dropdown = ({
         <div
           className={`ui selection dropdown${
             openDropdown ? " visible active" : ""
-          }`}
+          }${disabled ? " disabled" : ""}`}
           onClick={handleDropdownClick}
         >
           <i className="dropdown icon"></i>
@@ -40,7 +41,9 @@ const Dropdown = ({
               <div
                 key={option.id}
                 className={`item${
-                  option.value === selected.value ? " active selected" : ""
+                  option.value === selected.value
+                    ? " active selected disabled"
+                    : ""
                 }`}
                 onClick={() => onSelectedChange(option)}
               >
