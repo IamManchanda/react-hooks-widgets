@@ -1,8 +1,14 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const handleSearchTermChange = (event) => setSearchTerm(event.target.value);
+  useEffect(
+    function rerenderSearch() {
+      console.log(searchTerm);
+    },
+    [searchTerm],
+  );
   return (
     <Fragment>
       <div className="ui form">
