@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import isEmptyObject from "../utils/is-empty-object";
 
 const Dropdown = ({
@@ -9,9 +9,20 @@ const Dropdown = ({
   onSelectedChange = () => {},
 }) => {
   const [openDropdown, setOpenDropdown] = useState(false);
+  const ref = useRef();
   const handleDropdownClick = () => setOpenDropdown(!openDropdown);
+
+  useEffect(function rerenderDropdown() {
+    const handleBodyClick = (event) => {
+      if (ref.current.contains(event.target)) return;
+      setOpenDropdown(false);
+    };
+    document.body.addEventListener("click", handleBodyClick);
+    return () => document.body.removeEventListener("click", handleBodyClick);
+  }, []);
+
   return (
-    <div className="ui form" style={{ width: "600px" }}>
+    <div ref={ref} className="ui form" style={{ width: "600px" }}>
       <div className="field">
         <label className="label">{label}</label>
         <div
