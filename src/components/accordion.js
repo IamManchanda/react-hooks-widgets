@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 
-const Accordion = ({ items }) => {
+const Accordion = ({ items = [] }) => {
   const [activeIdx, setActiveIdx] = useState(null);
   const handleTitleClick = (idx) => setActiveIdx(idx);
   return (

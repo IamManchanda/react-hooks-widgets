@@ -3,7 +3,11 @@ import React, { Fragment } from "react";
 import Accordion from "./components/accordion";
 import Counter from "./components/counter";
 import Search from "./components/search";
+
+import Dropdown from "./components/dropdown";
+
 import items from "./fixtures/items";
+import options from "./fixtures/options";
 
 const App = () => (
   <Fragment>
@@ -13,7 +17,13 @@ const App = () => (
     <h2>Counter</h2>
     <Counter />
     <h2>Search List</h2>
-    <Search />
+    <Search initialSearchTerm="" />
+    <h2>Dropdown</h2>
+    <Dropdown
+      label="Select Color"
+      placeholder="Please select a Color"
+      options={options}
+    />
   </Fragment>
 );
 

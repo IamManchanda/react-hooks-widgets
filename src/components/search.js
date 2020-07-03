@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const Search = () => {
-  const [searchTerm, setSearchTerm] = useState("Programming");
+const Search = ({ initialSearchTerm = "" }) => {
+  const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchTerm);
   const [searchResults, setSearchResults] = useState([]);
   const handleSearchTermChange = (event) => setSearchTerm(event.target.value);
