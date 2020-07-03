@@ -11,7 +11,7 @@ const Search = ({ initialSearchTerm = "" }) => {
     function rerenderSearchTerm() {
       const timerId = setTimeout(() => {
         setDebouncedSearchTerm(searchTerm);
-      }, 200);
+      }, 300);
       return () => clearTimeout(timerId);
     },
     [searchTerm],

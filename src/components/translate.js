@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from "react";
 import Dropdown from "./dropdown";
+import Convert from "./convert";
 
 import languageOptions from "../fixtures/language-options";
 import isEmptyObject from "../utils/is-empty-object";
@@ -30,11 +31,7 @@ const Translate = () => {
         disabled={!text}
       />
       {!isEmptyObject(selectedLanguageOption) && (
-        <div className="ui segment" style={{ width: "600px" }}>
-          <p>
-            {text} | {selectedLanguageOption.label}
-          </p>
-        </div>
+        <Convert language={selectedLanguageOption.value} text={text} />
       )}
     </Fragment>
   );
