@@ -19,8 +19,8 @@ const App = () => {
       <Search initialSearchTerm="" />
       <h1>Dropdown</h1>
       <Dropdown
-        label="Select Color"
-        placeholder="Please select a Color"
+        label="Select color"
+        placeholder="Please select a color"
         options={options}
         selected={selectedOption}
         onSelectedChange={setSelectedOption}

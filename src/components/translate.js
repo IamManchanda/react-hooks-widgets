@@ -13,7 +13,7 @@ const Translate = () => {
     <Fragment>
       <div className="ui form" style={{ width: "600px", marginBottom: "1rem" }}>
         <div className="field">
-          <label>Enter Text to Translate</label>
+          <label>Enter text to translate</label>
           <input
             type="text"
             className="input"
@@ -23,8 +23,8 @@ const Translate = () => {
         </div>
       </div>
       <Dropdown
-        label="Select Language to Translate"
-        placeholder="Please select a Language"
+        label="Select language to translate"
+        placeholder="Please select a language"
         options={languageOptions}
         selected={selectedLanguageOption}
         onSelectedChange={setSelectedLanguageOption}
