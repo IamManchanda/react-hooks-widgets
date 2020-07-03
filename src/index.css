@@ -2,6 +2,7 @@ body {
   padding: 2rem;
 }
 
-.ui.form {
+.search-list {
+  max-width: 100%;
   width: 600px;
 }

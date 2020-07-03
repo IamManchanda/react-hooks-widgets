@@ -1,16 +1,32 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
   const handleSearchTermChange = (event) => setSearchTerm(event.target.value);
   useEffect(
     function rerenderSearch() {
-      console.log(searchTerm);
+      async function fetchWikipedia() {
+        const { data } = await axios.get("https://en.wikipedia.org/w/api.php", {
+          params: {
+            action: "query",
+            list: "search",
+            origin: "*",
+            format: "json",
+            srsearch: searchTerm,
+          },
+        });
+        setSearchResults(data.query.search);
+      }
+      if (searchTerm) {
+        fetchWikipedia();
+      }
     },
     [searchTerm],
   );
   return (
-    <Fragment>
+    <div className="search-list">
       <div className="ui form">
         <div className="field">
           <label>Enter search term</label>
@@ -22,7 +38,17 @@ const Search = () => {
           />
         </div>
       </div>
-    </Fragment>
+      <div className="ui celled list">
+        {searchResults.map(({ title, snippet, pageId }) => (
+          <div className="item" key={pageId}>
+            <div className="content">
+              <div className="header">{title}</div>
+              <span dangerouslySetInnerHTML={{ __html: snippet }} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 
