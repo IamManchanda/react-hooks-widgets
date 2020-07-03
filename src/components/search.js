@@ -2,29 +2,39 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Search = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("Programming");
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchTerm);
   const [searchResults, setSearchResults] = useState([]);
   const handleSearchTermChange = (event) => setSearchTerm(event.target.value);
+
   useEffect(
-    function rerenderSearch() {
-      async function fetchWikipedia() {
+    function rerenderSearchTerm() {
+      const timerId = setTimeout(() => {
+        setDebouncedSearchTerm(searchTerm);
+      }, 200);
+      return () => clearTimeout(timerId);
+    },
+    [searchTerm],
+  );
+
+  useEffect(
+    function rerenderDebouncedSearchTerm() {
+      (async function fetchWikipedia() {
         const { data } = await axios.get("https://en.wikipedia.org/w/api.php", {
           params: {
             action: "query",
             list: "search",
             origin: "*",
             format: "json",
-            srsearch: searchTerm,
+            srsearch: debouncedSearchTerm,
           },
         });
-        setSearchResults(data.query.search);
-      }
-      if (searchTerm) {
-        fetchWikipedia();
-      }
+        setSearchResults(data.query ? data.query.search : []);
+      })();
     },
-    [searchTerm],
+    [debouncedSearchTerm],
   );
+
   return (
     <div className="ui card" style={{ width: "600px", padding: "1rem" }}>
       <div className="ui form">
