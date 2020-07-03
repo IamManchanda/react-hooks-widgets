@@ -1,3 +1,7 @@
 body {
   padding: 2rem;
 }
+
+.ui.form {
+  width: 600px;
+}
