@@ -3,15 +3,14 @@ import isEmptyObject from "./utils/is-empty-object";
 
 import Accordion from "./components/accordion";
 import Search from "./components/search";
-
 import Dropdown from "./components/dropdown";
+import Translate from "./components/translate";
 
 import items from "./fixtures/items";
 import options from "./fixtures/options";
 
 const App = () => {
   const [selectedOption, setSelectedOption] = useState({});
-  const handleSelectedChange = (option) => setSelectedOption(option);
   return (
     <Fragment>
       <h1>Accordion</h1>
@@ -24,13 +23,15 @@ const App = () => {
         placeholder="Please select a Color"
         options={options}
         selected={selectedOption}
-        onSelectedChange={handleSelectedChange}
+        onSelectedChange={setSelectedOption}
       />
       {!isEmptyObject(selectedOption) && (
         <div className="ui segment" style={{ width: "600px" }}>
           <p>{selectedOption.content}</p>
         </div>
       )}
+      <h1>Translate</h1>
+      <Translate />
     </Fragment>
   );
 };
