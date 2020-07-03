@@ -26,7 +26,7 @@ const Search = () => {
     [searchTerm],
   );
   return (
-    <div className="search-list">
+    <div className="ui card" style={{ width: "600px", padding: "1rem" }}>
       <div className="ui form">
         <div className="field">
           <label>Enter search term</label>
@@ -39,8 +39,18 @@ const Search = () => {
         </div>
       </div>
       <div className="ui celled list">
-        {searchResults.map(({ title, snippet, pageId }) => (
-          <div className="item" key={pageId}>
+        {searchResults.map(({ title, snippet, pageid }) => (
+          <div className="item" key={pageid}>
+            <div className="right floated content">
+              <a
+                href={`https://en.wikipedia.org?curid=${pageid}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ui button"
+              >
+                Go
+              </a>
+            </div>
             <div className="content">
               <div className="header">{title}</div>
               <span dangerouslySetInnerHTML={{ __html: snippet }} />
