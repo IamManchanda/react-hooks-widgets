@@ -14,12 +14,11 @@ const App = () => {
   const handleSelectedChange = (option) => setSelectedOption(option);
   return (
     <Fragment>
-      <h1>Widgets App</h1>
-      <h2>Accordion</h2>
+      <h1>Accordion</h1>
       <Accordion items={items} />
-      <h2>Search List</h2>
+      <h1>Search List</h1>
       <Search initialSearchTerm="" />
-      <h2>Dropdown</h2>
+      <h1>Dropdown</h1>
       <Dropdown
         label="Select Color"
         placeholder="Please select a Color"
