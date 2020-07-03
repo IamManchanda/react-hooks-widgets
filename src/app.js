@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react";
 
 import Accordion from "./components/accordion";
-import Counter from "./components/counter";
 import Search from "./components/search";
 
 import Dropdown from "./components/dropdown";
@@ -17,8 +16,6 @@ const App = () => {
       <h1>Widgets App</h1>
       <h2>Accordion</h2>
       <Accordion items={items} />
-      <h2>Counter</h2>
-      <Counter />
       <h2>Search List</h2>
       <Search initialSearchTerm="" />
       <h2>Dropdown</h2>
