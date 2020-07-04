@@ -21,10 +21,6 @@ const App = () => {
         <h1>Accordion</h1>
         <Accordion items={items} />
       </Route>
-      <Route path="/list">
-        <h1>Search List</h1>
-        <Search initialSearchTerm="" />
-      </Route>
       <Route path="/dropdown">
         <h1>Dropdown</h1>
         <Dropdown
@@ -39,6 +35,10 @@ const App = () => {
             <p>{selectedOption.content}</p>
           </div>
         )}
+      </Route>
+      <Route path="/search">
+        <h1>Wiki Search</h1>
+        <Search initialSearchTerm="" />
       </Route>
       <Route path="/translate">
         <h1>Translate</h1>
