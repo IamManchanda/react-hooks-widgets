@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 
-const Route = ({ path, children }) => {
+const Route = ({ path = "", children }) => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
   useEffect(() => {
     const handleLocationChange = () => setCurrentPath(window.location.pathname);

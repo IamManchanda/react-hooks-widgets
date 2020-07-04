@@ -23,7 +23,7 @@ const App = () => {
       </Route>
       <Route path="/list">
         <h1>Search List</h1>
-        <Search initialSearchTerm="Book" />
+        <Search initialSearchTerm="" />
       </Route>
       <Route path="/dropdown">
         <h1>Dropdown</h1>

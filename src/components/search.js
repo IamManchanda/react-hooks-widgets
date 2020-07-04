@@ -37,6 +37,7 @@ const Search = ({ initialSearchTerm = "" }) => {
           <input
             type="text"
             className="input"
+            placeholder="Please enter a search term"
             value={searchTerm}
             onChange={handleSearchTermChange}
           />
