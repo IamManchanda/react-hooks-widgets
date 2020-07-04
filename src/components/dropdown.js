@@ -13,7 +13,7 @@ const Dropdown = ({
   const ref = useRef();
   const handleDropdownClick = () => setOpenDropdown(!openDropdown);
 
-  useEffect(function rerenderDropdown() {
+  useEffect(() => {
     const handleBodyClick = (event) => {
       if (ref.current.contains(event.target)) return;
       setOpenDropdown(false);

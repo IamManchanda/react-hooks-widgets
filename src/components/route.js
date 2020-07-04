@@ -1,6 +1,13 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
-const Route = ({ path, children }) =>
-  window.location.pathname === path && <Fragment>{children}</Fragment>;
+const Route = ({ path, children }) => {
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  useEffect(() => {
+    const handleLocationChange = () => setCurrentPath(window.location.pathname);
+    window.addEventListener("popstate", handleLocationChange);
+    return () => window.removeEventListener("popstate", handleLocationChange);
+  }, []);
+  return currentPath === path && <Fragment>{children}</Fragment>;
+};
 
 export default Route;

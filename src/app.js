@@ -6,6 +6,7 @@ import Search from "./components/search";
 import Dropdown from "./components/dropdown";
 import Translate from "./components/translate";
 import Route from "./components/route";
+import Header from "./components/header";
 
 import items from "./fixtures/items";
 import options from "./fixtures/options";
@@ -15,13 +16,14 @@ const App = () => {
 
   return (
     <div className="app">
+      <Header />
       <Route path="/">
         <h1>Accordion</h1>
         <Accordion items={items} />
       </Route>
       <Route path="/list">
         <h1>Search List</h1>
-        <Search initialSearchTerm="Programming" />
+        <Search initialSearchTerm="Book" />
       </Route>
       <Route path="/dropdown">
         <h1>Dropdown</h1>
