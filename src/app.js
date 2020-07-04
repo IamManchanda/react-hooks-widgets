@@ -31,7 +31,10 @@ const App = () => {
           onSelectedChange={setSelectedOption}
         />
         {!isEmptyObject(selectedOption) && (
-          <div className="ui segment" style={{ width: "600px" }}>
+          <div
+            className="ui segment"
+            style={{ width: "600px", maxWidth: "100%" }}
+          >
             <p>{selectedOption.content}</p>
           </div>
         )}

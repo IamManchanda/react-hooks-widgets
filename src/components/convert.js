@@ -32,7 +32,7 @@ const Convert = ({ language = "", text = "" }) => {
   }, [language, debouncedText]);
 
   return (
-    <div className="ui segment" style={{ width: "600px" }}>
+    <div className="ui segment" style={{ width: "600px", maxWidth: "100%" }}>
       <p>{translatedText}</p>
     </div>
   );
